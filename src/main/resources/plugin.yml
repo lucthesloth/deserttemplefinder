@@ -1,4 +1,4 @@
-name: DesertTempleFinder
+name: WitchHutFinder
 version: '${version}'
 main: me.lucthesloth.deserttemplefinder.DesertTempleFinder
 api-version: 1.14
