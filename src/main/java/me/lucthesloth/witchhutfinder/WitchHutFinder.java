@@ -1,4 +1,4 @@
-package me.lucthesloth.deserttemplefinder;
+package me.lucthesloth.witchhutfinder;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -11,9 +11,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public final class DesertTempleFinder extends JavaPlugin implements Listener {
+public final class WitchHutFinder extends JavaPlugin implements Listener {
     public FileConfiguration config;
-    public static DesertTempleFinder instance;
+    public static WitchHutFinder instance;
     @Override
     public void onEnable() {
         // Plugin startup logic
