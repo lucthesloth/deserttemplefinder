@@ -1,0 +1,9 @@
+# This will dictate if the check will be done on server startup.
+# Keep in mind that it will make the server lock up for around 30 seconds. (20kx20k area)
+runCheck: false
+
+#Change these settings to make a rectangle to search on
+minX: -10000
+minZ: -10000
+maxX: 10000
+maxZ: 10000

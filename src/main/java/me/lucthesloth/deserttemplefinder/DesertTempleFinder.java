@@ -18,21 +18,15 @@ public final class DesertTempleFinder extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         instance = this;
+        saveDefaultConfig();
         this.config = this.getConfig();
         Bukkit.getPluginManager().registerEvents(this, this);
-
-        if (!config.getBoolean("runCheck", false)) {
-            config.set("runCheck", true);
+        Bukkit.getScheduler().runTaskLater(this, () -> {
+            int total = findTemples(config.getInt("minX", -10000), config.getInt("minZ", -10000), config.getInt("maxX", 10000), config.getInt("maxZ", 10000));
+            config.set("runCheck", false);
             saveConfig();
-        } else {
-            Bukkit.getScheduler().runTaskLater(this, () -> {
-                    int total = findTemples(config.getInt("minX", -10000), config.getInt("minZ", -10000), config.getInt("maxX", 10000), config.getInt("maxZ", 10000));
-                    config.set("runCheck", false);
-                    saveConfig();
-                    Bukkit.getLogger().info(String.format("Found %d temples", total));
-
-            }, 20L);
-        }
+            Bukkit.getLogger().info(String.format("Found %d temples", total));
+        }, 20L);
     }
 
     @Override
