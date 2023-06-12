@@ -21,12 +21,14 @@ public final class WitchHutFinder extends JavaPlugin implements Listener {
         saveDefaultConfig();
         this.config = this.getConfig();
         Bukkit.getPluginManager().registerEvents(this, this);
-        Bukkit.getScheduler().runTaskLater(this, () -> {
-            int total = findTemples(config.getInt("minX", -10000), config.getInt("minZ", -10000), config.getInt("maxX", 10000), config.getInt("maxZ", 10000));
-            config.set("runCheck", false);
-            saveConfig();
-            Bukkit.getLogger().info(String.format("Found %d Witch Huts", total));
-        }, 20L);
+        if (config.getBoolean("runCheck", false)) {
+            Bukkit.getScheduler().runTaskLater(this, () -> {
+                int total = findHuts(config.getInt("minX", -10000), config.getInt("minZ", -10000), config.getInt("maxX", 10000), config.getInt("maxZ", 10000));
+                config.set("runCheck", false);
+                saveConfig();
+                Bukkit.getLogger().info(String.format("Found %d Witch Huts", total));
+            }, 20L);
+        }
     }
 
     @Override
@@ -34,7 +36,7 @@ public final class WitchHutFinder extends JavaPlugin implements Listener {
         // Plugin shutdown logic
     }
 
-    private int findTemples(int minX, int minZ, int maxX, int maxZ) {
+    private int findHuts(int minX, int minZ, int maxX, int maxZ) {
         AtomicInteger count = new AtomicInteger();
         LinkedHashSet<List<Integer>> temples = new LinkedHashSet<>();
         Bukkit.getWorlds().forEach(w -> {
