@@ -49,7 +49,7 @@ public final class WitchHutFinder extends JavaPlugin implements Listener {
                         temp = w.locateNearestStructure(new Location(w, x, 65, z), StructureType.SWAMP_HUT, 64, false);
                         if (temp != null) {
                             if (temp.getBlockZ() > maxZ || temp.getBlockZ() < minZ || temp.getBlockX() > maxX || temp.getBlockX() < minX) continue;
-                            temples.add(Arrays.asList(temp.getBlockX(), temp.getBlockZ()));
+                            temples.add(Arrays.asList(temp.getBlockX(), temp.getBlockY(), temp.getBlockZ()));
                         }
                         if (x % 1000 == 0 && z % 1000 == 0) {
                             Bukkit.getLogger().info(String.format("Checked %d, %d", x, z));
