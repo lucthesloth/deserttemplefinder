@@ -1,4 +1,5 @@
-name: DesertTempleFinder
+name: StructureFinder
 version: '${version}'
-main: me.lucthesloth.deserttemplefinder.DesertTempleFinder
+main: me.lucthesloth.structurefinder.StructureFinder
 api-version: 1.14
+author: LucTheSloth

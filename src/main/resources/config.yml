@@ -2,8 +2,16 @@
 # Keep in mind that it will make the server lock up for around 30 seconds. (20kx20k area)
 runCheck: false
 
+# Should display debug messages in console about progress?
+displayProgress: true
+
 #Change these settings to make a rectangle to search on
 minX: -10000
 minZ: -10000
 maxX: 10000
 maxZ: 10000
+
+# Which structures to search for inside the rectangle
+# Valid Options: DesertTemple, WitchHut
+# Adding multiple to the list will trigger all present.
+structures: []
