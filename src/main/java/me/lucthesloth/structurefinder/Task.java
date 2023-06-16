@@ -12,7 +12,7 @@ public class Task implements Runnable{
     private Set<List<Integer>> _temples = new HashSet<>();
     private Set<List<Integer>> _huts = new HashSet<>();
     private int _minX, _minZ, _maxX, _maxZ, _curX, _curZ, xSize, zSize;
-    double pivotX = 0, pivotZ = 0;
+    double pivotX = -0.1, pivotZ = -0.1;
     private List<StructureFinder.Structures> _structures;
     private boolean debug;
     public Task(int minX, int minZ, int maxX, int maxZ, List<String> strc){
